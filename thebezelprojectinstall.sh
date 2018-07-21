@@ -1,5 +1,3 @@
-#!/bin/bash
-
 ok_move () {
 tput cuf 4
 tput cuu 1
@@ -43,7 +41,7 @@ fi
   
   #download new version
   cd /home/pi/RetroPie/retropiemenu/
-  wget -q https://raw.githubusercontent.com/thebezelproject/BezelProject/master/bezelproject.sh -o bezelprojectnew.sh
+  wget -q https://raw.githubusercontent.com/thebezelproject/BezelProject/master/bezelproject.shccc -o bezelprojectnew.sh
   if [ -e /home/pi/RetroPie/retropiemenu/bezelprojectnew.sh ]; then
   
     #remove file if it already exists
