@@ -46,8 +46,8 @@ fi
 
 #download the graphics
   echo "$(tput setaf 7)  [    ] Pulling down graphics"
-  #cd /home/pi/RetroPie/retropiemenu/icons
-  #wget https://raw.githubusercontent.com/thebezelproject/BezelProject/master/bezelproject.png
+  cd /home/pi/RetroPie/retropiemenu/icons
+  wget -q https://raw.githubusercontent.com/steveskalley/thebezelproject_resources/master/bezelproject.png
   ok_move
 
 
