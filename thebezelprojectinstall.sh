@@ -40,16 +40,16 @@ fi
   echo "$(tput setaf 7)  [    ] Pulling down menu item"
   
   #download new version
-  cd /home/pi/RetroPie/retropiemenu/
-  wget -q https://raw.githubusercontent.com/thebezelproject/BezelProject/master/bezelproject.shccc -o bezelprojectnew.sh
-  if [ -e /home/pi/RetroPie/retropiemenu/bezelprojectnew.sh ]; then
+  cd /home/pi/
+  wget -q https://raw.githubusercontent.com/thebezelproject/BezelProject/master/bezelproject.sh
+  if [ -e /home/pi/bezelproject.sh ]; then
   
     #remove file if it already exists
     if [ -e /home/pi/RetroPie/retropiemenu/bezelproject.sh ]; then
       rm /home/pi/RetroPie/retropiemenu/bezelproject.sh
     fi
   
-    mv bezelprojectnew.sh bezelproject.sh
+    mv bezelproject.sh /home/pi/RetroPie/retropiemenu/bezelproject.sh
     chmod +x bezelproject.sh
     ok_move
   else
