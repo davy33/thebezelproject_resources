@@ -1,4 +1,4 @@
-
+#!/bin/bash
 
 ok_move () {
 tput cuf 4
@@ -6,6 +6,14 @@ tput cuu 1
 echo "$(tput setaf 2)ok"
 tput cud 1
 }
+
+fail_move () {
+tput cuf 4
+tput cuu 1
+echo "$(tput setaf 5)fail"
+tput cud 1
+}
+
 
 add_script_to_gamelist () {
 if [ -e $1 ]; then #only edit if exists
@@ -32,16 +40,23 @@ fi
 
 #download script
   echo "$(tput setaf 7)  [    ] Pulling down menu item"
-  #remove file if it already exists
-  if [ -e /home/pi/RetroPie/retropiemenu/bezelproject.sh ]; then
-    rm /home/pi/RetroPie/retropiemenu/bezelproject.sh
-  fi
-
+  
   #download new version
   cd /home/pi/RetroPie/retropiemenu/
-  wget -q https://raw.githubusercontent.com/thebezelproject/BezelProject/master/bezelproject.sh
-  chmod +x /home/pi/RetroPie/retropiemenu/bezelproject.sh
-  ok_move
+  wget -q https://raw.githubusercontent.com/thebezelproject/BezelProject/master/bezelproject.sh -o bezelprojectnew.sh
+  if [ -e /home/pi/RetroPie/retropiemenu/bezelprojectnew.sh ]; then
+  
+    #remove file if it already exists
+    if [ -e /home/pi/RetroPie/retropiemenu/bezelproject.sh ]; then
+      rm /home/pi/RetroPie/retropiemenu/bezelproject.sh
+    fi
+  
+    mv bezelprojectnew.sh bezelproject.sh
+    chmod +x bezelproject.sh
+    ok_move
+  else
+    fail_move
+  fi
 
 
 #download the graphics
