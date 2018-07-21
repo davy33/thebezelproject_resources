@@ -49,7 +49,7 @@ fi
       rm /home/pi/RetroPie/retropiemenu/bezelproject.sh
     fi
   
-    mv bezelproject.sh /home/pi/RetroPie/retropiemenu/bezelproject.sh
+    mv /home/pi/bezelproject.sh /home/pi/RetroPie/retropiemenu/bezelproject.sh
     chmod +x bezelproject.sh
     ok_move
   else
