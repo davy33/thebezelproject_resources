@@ -53,6 +53,7 @@ fi
     chmod +x /home/pi/RetroPie/retropiemenu/bezelproject.sh
     ok_move
   else
+    echo "failllll"
     fail_move
   fi
 
