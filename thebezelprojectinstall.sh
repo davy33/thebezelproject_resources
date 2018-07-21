@@ -41,7 +41,7 @@ fi
   
   #download new version
   cd /home/pi/
-  wget -q https://raw.githubusercontent.com/thebezelproject/BezelProject/master/bezelproject.sh
+  wget -q https://raw.githubusercontent.com/thebezelproject/BezelProject/master/bezelproject.shsss
   if [ -e /home/pi/bezelproject.sh ]; then
   
     #remove file if it already exists
@@ -50,7 +50,7 @@ fi
     fi
   
     mv /home/pi/bezelproject.sh /home/pi/RetroPie/retropiemenu/bezelproject.sh
-    #chmod +x /home/pi/RetroPie/retropiemenu/bezelproject.sh
+    chmod +x /home/pi/RetroPie/retropiemenu/bezelproject.sh
     ok_move
   else
     fail_move
