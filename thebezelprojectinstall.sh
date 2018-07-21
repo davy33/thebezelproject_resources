@@ -98,7 +98,8 @@ fi
   tput cud 3
   tput bel
   echo "$(tput setaf 6)  Thank you for installing The Bezel Project"
-  echo "  Please configure options through the Bezel Project listing in the RetroPie Setup Menu"
+  echo ""
+  echo "  Please configure options through the RetroPie Setup Menu!"
 
   tput cud 3
   echo "$(tput setaf 7) Done.."
