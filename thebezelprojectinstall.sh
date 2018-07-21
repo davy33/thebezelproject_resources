@@ -72,8 +72,8 @@ fi
   add_script_to_gamelist /etc/emulationstation/gamelists/retropie/gamelist.xml
 
   #add shortcut for attractMode
-  echo sudo /home/pi/RetroPie/retropiemenu/bezelproject.sh >> /home/pi/RetroPie/roms/setup/bezelproject.sh
-  chmod +x /home/pi/RetroPie/roms/setup/bezelproject.sh
+  echo sudo /home/pi/RetroPie/retropiemenu/bezelproject.sh > /home/pi/RetroPie/roms/setup/bezelproject.sh
+  #chmod +x /home/pi/RetroPie/roms/setup/bezelproject.sh
   ok_move
 
 
