@@ -6,7 +6,7 @@ tput cud 1
 }
 
 fail_move () {
-tput cuf 4
+tput cuf 3
 tput cuu 1
 echo "$(tput setaf 5)fail"
 tput cud 1
@@ -38,44 +38,59 @@ fi
 
 #download script
   echo "$(tput setaf 7)  [    ] Pulling down menu item"
-  
+
   #download new version
   cd /home/pi/
-  wget -q https://raw.githubusercontent.com/thebezelproject/BezelProject/master/bezelproject.shsss
+  wget -q https://raw.githubusercontent.com/thebezelproject/BezelProject/master/bezelproject.sh
   if [ -e /home/pi/bezelproject.sh ]; then
-  
+
     #remove file if it already exists
     if [ -e /home/pi/RetroPie/retropiemenu/bezelproject.sh ]; then
       rm /home/pi/RetroPie/retropiemenu/bezelproject.sh
     fi
-  
+
     mv /home/pi/bezelproject.sh /home/pi/RetroPie/retropiemenu/bezelproject.sh
     chmod +x /home/pi/RetroPie/retropiemenu/bezelproject.sh
     ok_move
   else
-    #echo "failllll"
     fail_move
   fi
 
 
 #download the graphics
   echo "$(tput setaf 7)  [    ] Pulling down graphics"
-  cd /home/pi/RetroPie/retropiemenu/icons
-  wget -q https://raw.githubusercontent.com/steveskalley/thebezelproject_resources/master/bezelproject.png
-  ok_move
 
+  #download new version
+  cd /home/pi/
+  wget -q https://raw.githubusercontent.com/steveskalley/thebezelproject_resources/master/bezelproject.png
+  if [ -e /home/pi/bezelproject.png ]; then
+
+    #remove file if it already exists
+    if [ -e /home/pi/RetroPie/retropiemenu/icons/bezelproject.png ]; then
+      rm /home/pi/RetroPie/retropiemenu/icons/bezelproject.png
+    fi
+
+    mv /home/pi/bezelproject.png /home/pi/RetroPie/retropiemenu/icons/bezelproject.png
+    ok_move
+  else
+    fail_move
+  fi
 
 #modify menus
   echo "$(tput setaf 7)  [    ] Adding to Retropie Setup menu"
-  add_script_to_gamelist /home/pi/gamelist-bkp.xml
-  add_script_to_gamelist /home/pi/RetroPie/retropiemenu/gamelist.xml
-  add_script_to_gamelist /home/pi/.emulationstation/gamelists/retropie/gamelist.xml
-  add_script_to_gamelist /etc/emulationstation/gamelists/retropie/gamelist.xml
+  if [ -e /home/pi/RetroPie/retropiemenu/bezelproject.sh ]; then
+    add_script_to_gamelist /home/pi/gamelist-bkp.xml
+    add_script_to_gamelist /home/pi/RetroPie/retropiemenu/gamelist.xml
+    add_script_to_gamelist /home/pi/.emulationstation/gamelists/retropie/gamelist.xml
+    add_script_to_gamelist /etc/emulationstation/gamelists/retropie/gamelist.xml
 
-  #add shortcut for attractMode
-  echo sudo /home/pi/RetroPie/retropiemenu/bezelproject.sh > /home/pi/RetroPie/roms/setup/bezelproject.sh
-  #chmod +x /home/pi/RetroPie/roms/setup/bezelproject.sh
-  ok_move
+    #add shortcut for attractMode
+    echo sudo /home/pi/RetroPie/retropiemenu/bezelproject.sh > /home/pi/RetroPie/roms/setup/bezelproject.sh
+    #chmod +x /home/pi/RetroPie/roms/setup/bezelproject.sh
+    ok_move
+  else
+    fail_move
+  fi
 
 
 
