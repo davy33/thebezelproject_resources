@@ -93,7 +93,7 @@ fi
     if [ ! -e /home/pi/RetroPie/roms/setup/bezelproject.sh ]; then
       sudo touch /home/pi/RetroPie/roms/setup/bezelproject.sh
     fi
-    chmod 777 /home/pi/RetroPie/roms/setup/bezelproject.sh
+    sudo chmod 777 /home/pi/RetroPie/roms/setup/bezelproject.sh
     echo sudo /home/pi/RetroPie/retropiemenu/bezelproject.sh > /home/pi/RetroPie/roms/setup/bezelproject.sh
     
     
