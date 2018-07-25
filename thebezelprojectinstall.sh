@@ -86,8 +86,13 @@ fi
 
     #add shortcut for attractMode
     sudo mkdir /home/pi/RetroPie/roms/setup/
+    if [ -e /home/pi/RetroPie/roms/setup/bezelproject.sh ]; then
+      sudo touch /home/pi/RetroPie/roms/setup/bezelproject.sh
+    fi
+    chmod 777 /home/pi/RetroPie/roms/setup/bezelproject.sh
     echo sudo /home/pi/RetroPie/retropiemenu/bezelproject.sh > /home/pi/RetroPie/roms/setup/bezelproject.sh
-    #chmod +x /home/pi/RetroPie/roms/setup/bezelproject.sh
+    
+    
     ok_move
   else
     fail_move
